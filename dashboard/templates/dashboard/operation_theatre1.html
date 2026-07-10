@@ -1,0 +1,275 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Operation Theatre - 1</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="{% static 'dashboard/css/operation_theatre1.css' %}">
+
+</head>
+
+<body>
+
+<div class="container-fluid main-page">
+
+    <!-- ================= HEADER ================= -->
+
+<div class="top-bar">
+
+    <!-- Back Button -->
+    <a href="{% url 'home' %}" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Dashboard
+    </a>
+
+    <!-- Title -->
+    <div class="title-area">
+
+        <div class="page-badge">
+            <i class="fa-solid fa-hospital"></i>
+            Hospital UPS Monitoring
+        </div>
+
+        <h1>Operation Theatre - 1</h1>
+
+        <p>
+            Real-Time Smart UPS Monitoring Dashboard
+        </p>
+
+    </div>
+
+    <!-- Live Date Time -->
+
+    <div class="time-box">
+
+        <div class="clock-icon">
+            <i class="fa-regular fa-clock"></i>
+        </div>
+
+        <div class="clock-details">
+
+            <h2 id="liveTime">00:00:00 PM</h2>
+
+            <span id="liveDay">
+                Friday
+            </span>
+
+            <small id="liveDate">
+                10 July 2026
+            </small>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ================= STATUS SUMMARY ================= -->
+
+<div class="summary-cards">
+
+    <!-- GRID STATUS -->
+
+    <div class="summary-card">
+
+        <div class="status-icon">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+
+        <div class="status-content">
+            <span>GRID STATUS</span>
+            <h3 id="gridStatus">Connected</h3>
+            <p class="online">
+                <i class="fa-solid fa-circle"></i>
+                Online
+            </p>
+        </div>
+
+    </div>
+
+    <!-- BATTERY -->
+
+    <div class="summary-card">
+
+        <div class="status-icon">
+            <i class="fa-solid fa-battery-full"></i>
+        </div>
+
+        <div class="status-content">
+            <span>BATTERY</span>
+            <h3 id="batteryLevel">100%</h3>
+            <p class="charging">
+                <i class="fa-solid fa-bolt"></i>
+                Charging
+            </p>
+        </div>
+
+    </div>
+
+    <!-- UPS MODE -->
+
+    <div class="summary-card">
+
+        <div class="status-icon">
+            <i class="fa-solid fa-microchip"></i>
+        </div>
+
+        <div class="status-content">
+            <span>UPS MODE</span>
+            <h3 id="upsMode">GRID MODE</h3>
+            <p class="stable">
+                <i class="fa-solid fa-circle-check"></i>
+                Stable
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- ================= GRID + BATTERY ================= -->
+
+    <div class="section-wrapper">
+
+        <!-- GRID CARD -->
+
+        <div class="monitor-card">
+
+            <h2>
+                <i class="fa-solid fa-bolt"></i>
+                GRID
+            </h2>
+
+            <div class="parameter-grid">
+
+                <div class="parameter-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Voltage</span>
+                    <h3 id="gridVoltage">0 V</h3>
+                    <small class="normal">Normal</small>
+                </div>
+
+                <div class="parameter-card">
+                    <i class="fa-solid fa-plug"></i>
+                    <span>Current</span>
+                    <h3 id="gridCurrent">0 A</h3>
+                    <small class="normal">Normal</small>
+                </div>
+
+                <div class="parameter-card">
+                    <i class="fa-solid fa-battery-half"></i>
+                    <span>Power</span>
+                    <h3 id="gridPower">0 W</h3>
+                    <small class="normal">Normal</small>
+                </div>
+
+                <div class="parameter-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Energy</span>
+                    <h3 id="gridEnergy">0 kWh</h3>
+                    <small class="normal">Normal</small>
+                </div>
+
+                <div class="parameter-card">
+                    <i class="fa-solid fa-wave-square"></i>
+                    <span>Power Factor</span>
+                    <h3 id="gridPF">0.00</h3>
+                    <small class="normal">Good</small>
+                </div>
+
+                <div class="parameter-card">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Frequency</span>
+                    <h3 id="gridFreq">0 Hz</h3>
+                    <small class="normal">Stable</small>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BATTERY CARD -->
+
+        <div class="monitor-card">
+
+            <h2>
+                <i class="fa-solid fa-battery-three-quarters"></i>
+                BATTERY
+            </h2>
+
+            <div class="parameter-grid">
+
+                <div class="parameter-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Voltage</span>
+                    <h3 id="batteryVoltage">0 V</h3>
+                    <small class="normal">Normal</small>
+                </div>
+
+                <div class="parameter-card">
+                    <i class="fa-solid fa-plug"></i>
+                    <span>Current</span>
+                    <h3 id="batteryCurrent">0 A</h3>
+                    <small class="normal">Normal</small>
+                </div>
+
+                <div class="parameter-card">
+                    <i class="fa-solid fa-battery-half"></i>
+                    <span>Power</span>
+                    <h3 id="batteryPower">0 W</h3>
+                    <small class="normal">Normal</small>
+                </div>
+
+                <div class="parameter-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Energy</span>
+                    <h3 id="batteryEnergy">0 kWh</h3>
+                    <small class="normal">Normal</small>
+                </div>
+
+                <div class="parameter-card">
+                    <i class="fa-solid fa-wave-square"></i>
+                    <span>Power Factor</span>
+                    <h3 id="batteryPF">0.00</h3>
+                    <small class="normal">Good</small>
+                </div>
+
+                <div class="parameter-card">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Frequency</span>
+                    <h3 id="batteryFreq">0 Hz</h3>
+                    <small class="normal">Stable</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= JavaScript ================= -->
+
+<script src="{% static 'dashboard/js/operation_theatre1.js' %}"></script>
+
+</body>
+</html>

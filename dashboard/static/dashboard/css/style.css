@@ -1,0 +1,621 @@
+/* ===========================================
+   SMART 24x7 UPS MONITORING SYSTEM
+   Premium Dashboard UI
+=========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+
+    --primary:#F4C430;
+    --primary-dark:#e2b200;
+
+    --bg:#F5F7FA;
+
+    --sidebar:#ffffff;
+
+    --card:#ffffff;
+
+    --text:#223B63;
+
+    --text-light:#6b7280;
+
+    --green:#22C55E;
+
+    --shadow:0 6px 18px rgba(16,24,40,.08);
+
+    --radius:20px;
+
+}
+
+body{
+
+    background:var(--bg);
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+.app-layout{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+/* =========================
+        SIDEBAR
+========================== */
+
+.sidebar{
+
+    width:290px;
+
+    background:var(--sidebar);
+
+    padding:35px;
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:50px;
+
+}
+
+.logo-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:18px;
+
+    background:var(--primary);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:25px;
+
+    box-shadow:0 8px 20px rgba(244,196,48,.4);
+
+}
+
+.logo h2{
+
+    color:var(--text);
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.logo p{
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+/* =========================
+          MENU
+========================== */
+
+.menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:16px 20px;
+
+    border-radius:14px;
+
+    color:#444;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.menu a i{
+
+    width:22px;
+
+}
+
+.menu a:hover{
+
+    background:#FFF7DD;
+
+    color:#222;
+
+}
+
+.menu .active{
+
+    background:#FFF3CC;
+
+    color:#222;
+
+}
+
+/* ==========================
+      STATUS CARD
+=========================== */
+
+.status-card{
+
+    margin-top:auto;
+
+    background:#fafafa;
+
+    border-radius:18px;
+
+    padding:25px;
+
+}
+
+.status-card h3{
+
+    color:var(--text);
+
+    margin-bottom:20px;
+
+}
+
+.status-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:15px;
+
+    color:#555;
+
+    font-size:15px;
+
+}
+
+.dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+}
+
+.green{
+
+    background:var(--green);
+
+}
+
+/* ==========================
+      MAIN CONTENT
+=========================== */
+
+.main-content{
+
+    flex:1;
+
+    padding:40px;
+
+}
+
+/* ==========================
+      WELCOME CARD
+=========================== */
+
+.welcome-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:35px 40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:35px;
+
+}
+
+.welcome-card h1{
+
+    color:var(--text);
+
+    font-size:40px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.welcome-card p{
+
+    color:var(--text-light);
+
+    font-size:18px;
+
+}
+
+/* ==========================
+      DATE CARD
+=========================== */
+
+/* ==========================
+      DATE & TIME CARD
+========================== */
+
+.date-card{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    background: linear-gradient(135deg,#FFF9E6,#FFEFB3);
+
+    padding: 20px 28px;
+
+    border-radius: 20px;
+
+    min-width: 290px;
+
+    box-shadow: 0 10px 25px rgba(244,196,48,.25);
+
+    transition: .3s;
+}
+
+.date-card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 18px 35px rgba(244,196,48,.35);
+}
+
+.date-card i{
+    font-size: 34px;
+    color: #F4C430;
+}
+
+.date-card h3{
+    margin:0;
+    color:#1F3A5F;
+    font-size:30px;
+    font-weight:700;
+    line-height:1.1;
+
+    white-space: nowrap;
+}
+
+.date-card p{
+    margin-top:5px;
+    color:#666;
+    font-size:15px;
+    font-weight:500;
+}
+/* ==========================
+        UPS GRID
+========================== */
+
+.ups-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+/* ==========================
+        UPS CARD
+========================== */
+
+.ups-card{
+
+    background:#fff;
+
+    border-radius:0;
+
+    padding:30px;
+
+   box-shadow:
+0 1px 3px rgba(0,0,0,.05),
+0 8px 24px rgba(0,0,0,.06);
+    position:relative;
+
+    overflow:hidden;
+
+    border:none;
+
+    transition:.35s;
+
+}
+.ups-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    height:8px;
+
+    background:#FFC107;
+
+}
+
+
+
+.ups-card:hover{
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 20px 40px rgba(0,0,0,.12);
+
+    border-color: #FFC107;
+
+}
+
+.icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:18px;
+
+    background:#FFF4CC;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.icon i{
+
+    font-size:32px;
+
+    color:var(--primary-dark);
+
+}
+
+.ups-card h3{
+
+    color:var(--text);
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+.ups-card p{
+
+    color:var(--text-light);
+
+    margin-bottom:25px;
+
+}
+
+/* ==========================
+        HEALTH
+========================== */
+
+.health{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:25px;
+
+    color:var(--green);
+
+    font-weight:600;
+
+}
+
+.green-dot{
+
+    width:12px;
+
+    height:12px;
+
+    background:var(--green);
+
+    border-radius:50%;
+
+}
+
+/* ==========================
+        BUTTON
+========================== */
+
+.ups-card button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:var(--primary);
+
+    color:#222;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.ups-card button:hover{
+
+    background:var(--primary-dark);
+
+    color:white;
+
+}
+
+/* ==========================
+      SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#d8d8d8;
+
+    border-radius:10px;
+
+}
+
+/* ==========================
+      RESPONSIVE
+========================== */
+
+@media(max-width:1200px){
+
+    .ups-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    .sidebar{
+
+        width:90px;
+
+        padding:20px;
+
+    }
+
+    .logo h2,
+    .logo p,
+    .menu a span,
+    .status-card{
+
+        display:none;
+
+    }
+
+    .menu a{
+
+        justify-content:center;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .app-layout{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+        height:auto;
+
+    }
+
+    .ups-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .welcome-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+}

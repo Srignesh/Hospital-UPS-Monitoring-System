@@ -1,0 +1,296 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart 24x7 UPS Monitoring System</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+
+            <div>
+                <h2>Smart24x7 UPS</h2>
+                <p>Monitoring System</p>
+            </div>
+
+        </div>
+
+        <nav class="menu">
+
+            <a href="#" class="active">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                Event Logs
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+
+        </nav>
+
+        <div class="status-card">
+
+            <h3>System Status</h3>
+
+            <div class="status-item">
+                <span class="dot green"></span>
+                Grid Connected
+            </div>
+
+            <div class="status-item">
+                <span class="dot green"></span>
+                Battery Healthy
+            </div>
+
+            <div class="status-item">
+                <span class="dot green"></span>
+                Server Online
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- Welcome Card -->
+
+        <div class="welcome-card">
+
+            <div>
+
+                <h1>Welcome to Smart 24x7 UPS Monitoring System</h1>
+
+                <p>Real-Time Hospital UPS Monitoring Dashboard</p>
+
+            </div>
+
+            <div class="date-card">
+
+                <i class="fa-regular fa-clock"></i>
+
+                <div>
+
+                    <h3 id="liveTime">00:00:00</h3>
+
+                    <p id="liveDate">Loading...</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= UPS GRID ================= -->
+
+        <div class="ups-grid">
+
+            <!-- Operation Theatre 1 -->
+
+            <div class="ups-card">
+
+                <div class="icon">
+                    <i class="fa-solid fa-hospital"></i>
+                </div>
+
+                <h3>Operation Theatre - 1</h3>
+
+                <p>Critical Power Backup</p>
+
+                <div class="health">
+                    <span class="green-dot"></span>
+                    Healthy
+                </div>
+
+                <a href="{% url 'operation_theatre1' %}">
+                    <button>View Details</button>
+                </a>
+
+            </div>
+
+            <!-- Operation Theatre 2 -->
+
+            <div class="ups-card">
+
+                <div class="icon">
+                    <i class="fa-solid fa-hospital"></i>
+                </div>
+
+                <h3>Operation Theatre - 2</h3>
+
+                <p>Critical Power Backup</p>
+
+                <div class="health">
+                    <span class="green-dot"></span>
+                    Healthy
+                </div>
+
+                <button>View Details</button>
+
+            </div>
+
+            <!-- ICU 1 -->
+
+            <div class="ups-card">
+
+                <div class="icon">
+                    <i class="fa-solid fa-bed-pulse"></i>
+                </div>
+
+                <h3>ICU - 1</h3>
+
+                <p>Critical Power Backup</p>
+
+                <div class="health">
+                    <span class="green-dot"></span>
+                    Healthy
+                </div>
+
+                <button>View Details</button>
+
+            </div>
+
+            <!-- ICU 2 -->
+
+            <div class="ups-card">
+
+                <div class="icon">
+                    <i class="fa-solid fa-bed-pulse"></i>
+                </div>
+
+                <h3>ICU - 2</h3>
+
+                <p>Critical Power Backup</p>
+
+                <div class="health">
+                    <span class="green-dot"></span>
+                    Healthy
+                </div>
+
+                <button>View Details</button>
+
+            </div>
+
+            <!-- General Ward 1 -->
+
+            <div class="ups-card">
+
+                <div class="icon">
+                    <i class="fa-solid fa-bed"></i>
+                </div>
+
+                <h3>General Ward - 1</h3>
+
+                <p>Critical Power Backup</p>
+
+                <div class="health">
+                    <span class="green-dot"></span>
+                    Healthy
+                </div>
+
+                <button>View Details</button>
+
+            </div>
+
+            <!-- General Ward 2 -->
+
+            <div class="ups-card">
+
+                <div class="icon">
+                    <i class="fa-solid fa-bed"></i>
+                </div>
+
+                <h3>General Ward - 2</h3>
+
+                <p>Critical Power Backup</p>
+
+                <div class="health">
+                    <span class="green-dot"></span>
+                    Healthy
+                </div>
+
+                <button>View Details</button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Live Clock -->
+
+<script>
+
+function updateClock(){
+
+    const now = new Date();
+
+    const time = now.toLocaleTimeString('en-IN',{
+    hour:'2-digit',
+    minute:'2-digit',
+    second:'2-digit',
+    hour12:true
+}).toUpperCase();
+
+    const date = now.toLocaleDateString('en-IN',{
+    weekday:'short',
+    day:'numeric',
+    month:'long',
+    year:'numeric'
+});
+
+    document.getElementById("liveTime").innerHTML=time;
+    document.getElementById("liveDate").innerHTML=date;
+
+}
+
+updateClock();
+
+setInterval(updateClock,1000);
+
+</script>
+
+</body>
+</html>
